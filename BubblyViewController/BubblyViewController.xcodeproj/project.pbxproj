@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B728ABD1B4316D4000D412C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B728ABC1B4316D4000D412C /* AppDelegate.swift */; };
+		3B728ABF1B4316D4000D412C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B728ABE1B4316D4000D412C /* ViewController.swift */; };
+		3B728AC21B4316D4000D412C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B728AC01B4316D4000D412C /* Main.storyboard */; };
+		3B728AC41B4316D4000D412C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B728AC31B4316D4000D412C /* Images.xcassets */; };
+		3B728AC71B4316D4000D412C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B728AC51B4316D4000D412C /* LaunchScreen.xib */; };
+		3B728AD31B4316D4000D412C /* BubblyViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B728AD21B4316D4000D412C /* BubblyViewControllerTests.swift */; };
+		3B728ADD1B431701000D412C /* BubblyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B728ADC1B431701000D412C /* BubblyView.swift */; };
+		3B728ADF1B4319A7000D412C /* BubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B728ADE1B4319A7000D412C /* BubbleCell.swift */; };
+		3B728AE11B4319CA000D412C /* BubbleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B728AE01B4319CA000D412C /* BubbleCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B728ACD1B4316D4000D412C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B728AAF1B4316D4000D412C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B728AB61B4316D4000D412C;
+			remoteInfo = BubblyViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B728AB71B4316D4000D412C /* BubblyViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubblyViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B728ABB1B4316D4000D412C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B728ABC1B4316D4000D412C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B728ABE1B4316D4000D412C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B728AC11B4316D4000D412C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B728AC31B4316D4000D412C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3B728AC61B4316D4000D412C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3B728ACC1B4316D4000D412C /* BubblyViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BubblyViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B728AD11B4316D4000D412C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B728AD21B4316D4000D412C /* BubblyViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblyViewControllerTests.swift; sourceTree = "<group>"; };
+		3B728ADC1B431701000D412C /* BubblyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubblyView.swift; sourceTree = "<group>"; };
+		3B728ADE1B4319A7000D412C /* BubbleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleCell.swift; sourceTree = "<group>"; };
+		3B728AE01B4319CA000D412C /* BubbleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BubbleCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B728AB41B4316D4000D412C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B728AC91B4316D4000D412C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B728AAE1B4316D4000D412C = {
+			isa = PBXGroup;
+			children = (
+				3B728AB91B4316D4000D412C /* BubblyViewController */,
+				3B728ACF1B4316D4000D412C /* BubblyViewControllerTests */,
+				3B728AB81B4316D4000D412C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B728AB81B4316D4000D412C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B728AB71B4316D4000D412C /* BubblyViewController.app */,
+				3B728ACC1B4316D4000D412C /* BubblyViewControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B728AB91B4316D4000D412C /* BubblyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B728ABC1B4316D4000D412C /* AppDelegate.swift */,
+				3B728ABE1B4316D4000D412C /* ViewController.swift */,
+				3B728AC01B4316D4000D412C /* Main.storyboard */,
+				3B728ADE1B4319A7000D412C /* BubbleCell.swift */,
+				3B728AE01B4319CA000D412C /* BubbleCell.xib */,
+				3B728ADC1B431701000D412C /* BubblyView.swift */,
+				3B728AC31B4316D4000D412C /* Images.xcassets */,
+				3B728AC51B4316D4000D412C /* LaunchScreen.xib */,
+				3B728ABA1B4316D4000D412C /* Supporting Files */,
+			);
+			path = BubblyViewController;
+			sourceTree = "<group>";
+		};
+		3B728ABA1B4316D4000D412C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B728ABB1B4316D4000D412C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B728ACF1B4316D4000D412C /* BubblyViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B728AD21B4316D4000D412C /* BubblyViewControllerTests.swift */,
+				3B728AD01B4316D4000D412C /* Supporting Files */,
+			);
+			path = BubblyViewControllerTests;
+			sourceTree = "<group>";
+		};
+		3B728AD01B4316D4000D412C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B728AD11B4316D4000D412C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B728AB61B4316D4000D412C /* BubblyViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B728AD61B4316D4000D412C /* Build configuration list for PBXNativeTarget "BubblyViewController" */;
+			buildPhases = (
+				3B728AB31B4316D4000D412C /* Sources */,
+				3B728AB41B4316D4000D412C /* Frameworks */,
+				3B728AB51B4316D4000D412C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BubblyViewController;
+			productName = BubblyViewController;
+			productReference = 3B728AB71B4316D4000D412C /* BubblyViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B728ACB1B4316D4000D412C /* BubblyViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B728AD91B4316D4000D412C /* Build configuration list for PBXNativeTarget "BubblyViewControllerTests" */;
+			buildPhases = (
+				3B728AC81B4316D4000D412C /* Sources */,
+				3B728AC91B4316D4000D412C /* Frameworks */,
+				3B728ACA1B4316D4000D412C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B728ACE1B4316D4000D412C /* PBXTargetDependency */,
+			);
+			name = BubblyViewControllerTests;
+			productName = BubblyViewControllerTests;
+			productReference = 3B728ACC1B4316D4000D412C /* BubblyViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B728AAF1B4316D4000D412C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "David Johnson";
+				TargetAttributes = {
+					3B728AB61B4316D4000D412C = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					3B728ACB1B4316D4000D412C = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 3B728AB61B4316D4000D412C;
+					};
+				};
+			};
+			buildConfigurationList = 3B728AB21B4316D4000D412C /* Build configuration list for PBXProject "BubblyViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B728AAE1B4316D4000D412C;
+			productRefGroup = 3B728AB81B4316D4000D412C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B728AB61B4316D4000D412C /* BubblyViewController */,
+				3B728ACB1B4316D4000D412C /* BubblyViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B728AB51B4316D4000D412C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B728AC21B4316D4000D412C /* Main.storyboard in Resources */,
+				3B728AC71B4316D4000D412C /* LaunchScreen.xib in Resources */,
+				3B728AC41B4316D4000D412C /* Images.xcassets in Resources */,
+				3B728AE11B4319CA000D412C /* BubbleCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B728ACA1B4316D4000D412C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B728AB31B4316D4000D412C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B728ABF1B4316D4000D412C /* ViewController.swift in Sources */,
+				3B728ADD1B431701000D412C /* BubblyView.swift in Sources */,
+				3B728ABD1B4316D4000D412C /* AppDelegate.swift in Sources */,
+				3B728ADF1B4319A7000D412C /* BubbleCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B728AC81B4316D4000D412C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B728AD31B4316D4000D412C /* BubblyViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B728ACE1B4316D4000D412C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B728AB61B4316D4000D412C /* BubblyViewController */;
+			targetProxy = 3B728ACD1B4316D4000D412C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3B728AC01B4316D4000D412C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B728AC11B4316D4000D412C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3B728AC51B4316D4000D412C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B728AC61B4316D4000D412C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B728AD41B4316D4000D412C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B728AD51B4316D4000D412C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B728AD71B4316D4000D412C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BubblyViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3B728AD81B4316D4000D412C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BubblyViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3B728ADA1B4316D4000D412C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BubblyViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BubblyViewController.app/BubblyViewController";
+			};
+			name = Debug;
+		};
+		3B728ADB1B4316D4000D412C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BubblyViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BubblyViewController.app/BubblyViewController";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B728AB21B4316D4000D412C /* Build configuration list for PBXProject "BubblyViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B728AD41B4316D4000D412C /* Debug */,
+				3B728AD51B4316D4000D412C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B728AD61B4316D4000D412C /* Build configuration list for PBXNativeTarget "BubblyViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B728AD71B4316D4000D412C /* Debug */,
+				3B728AD81B4316D4000D412C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3B728AD91B4316D4000D412C /* Build configuration list for PBXNativeTarget "BubblyViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B728ADA1B4316D4000D412C /* Debug */,
+				3B728ADB1B4316D4000D412C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B728AAF1B4316D4000D412C /* Project object */;
+}
