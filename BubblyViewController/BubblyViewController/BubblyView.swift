@@ -12,6 +12,8 @@ import UIKit
 class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     let items = ["Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop", "Bibbity", "Bobbity", "Boop"]
     
+    var displayedItems = [String]()
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.blueColor()
@@ -24,11 +26,17 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
         var layout = BubblyLayout()
         
         collectionViewLayout = layout
+        for (index, item) in enumerate(items) {
+            performBatchUpdates({ () -> Void in
+                self.insertItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)])
+                self.displayedItems.append(item)
+            }, completion: nil)
+        }
     }
     
     //MARK - DataSource
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return displayedItems.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -44,16 +52,23 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-class BubblyLayout: UICollectionViewFlowLayout {
+class BubblyLayout: UICollectionViewLayout {
     var dynamicAnimator: UIDynamicAnimator?
+    var gravityBehavior: UIGravityBehavior?
+    var collisionBehavior: UICollisionBehavior?
+    
+    let kItemSize = 60
     
     override init() {
         super.init()
-        minimumInteritemSpacing = 10
-        minimumLineSpacing = 10
-        itemSize = CGSize(width: 60, height: 60)
-        sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         dynamicAnimator = UIDynamicAnimator(collectionViewLayout: self)
+
+        gravityBehavior = UIGravityBehavior(items: [])
+        gravityBehavior?.gravityDirection = CGVectorMake(0, 1)
+        dynamicAnimator?.addBehavior(gravityBehavior)
+        
+        collisionBehavior = UICollisionBehavior(items: [])
+        dynamicAnimator?.addBehavior(collisionBehavior)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -61,23 +76,23 @@ class BubblyLayout: UICollectionViewFlowLayout {
         prepareLayout()
     }
 
-    override func prepareLayout() {
-        super.prepareLayout()
+    override func prepareForCollectionViewUpdates(updateItems: [AnyObject]!) {
+        super.prepareForCollectionViewUpdates(updateItems)
         
-        if let contentSize = self.collectionView?.contentSize {
-            var items = super.layoutAttributesForElementsInRect(CGRectMake(0, 0, contentSize.width, contentSize.height))
-            
-            if dynamicAnimator?.behaviors.count == 0 {
-                for item in items! {
-                    if let obj = item as? UIDynamicItem {
-                        var behavior = UIAttachmentBehavior(item: obj, attachedToAnchor: obj.center)
-                        
-                        behavior.length = 0.5
-                        behavior.damping = 0.5
-                        behavior.frequency = 1.0
-                        dynamicAnimator?.addBehavior(behavior)
-                    }
-                }
+        for item in updateItems as! [UICollectionViewUpdateItem] {
+            if item.updateAction == UICollectionUpdateAction.Insert {
+                var attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: item.indexPathAfterUpdate!)
+                attributes.frame = CGRectMake(CGRectGetMaxX(self.collectionView!.frame) + CGFloat(kItemSize), 300, 60, 60)
+                
+                
+                var attachmentBehavior = UIAttachmentBehavior(item: attributes, attachedToAnchor: CGPointMake(CGRectGetMidX(self.collectionView!.bounds), 64))
+                attachmentBehavior.length = 300.0;
+                attachmentBehavior.damping = 0.4;
+                attachmentBehavior.frequency = 1.0;
+                
+                dynamicAnimator?.addBehavior(attachmentBehavior)
+                gravityBehavior?.addItem(attributes)
+                collisionBehavior?.addItem(attributes)
             }
         }
     }
@@ -89,33 +104,13 @@ class BubblyLayout: UICollectionViewFlowLayout {
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
         return dynamicAnimator?.layoutAttributesForCellAtIndexPath(indexPath)
     }
-    
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
-        var scrollView = collectionView
-        var delta = newBounds.origin.y - scrollView!.bounds.origin.y
-        
-        var touchLocation = collectionView?.panGestureRecognizer.locationInView(collectionView)
-        
-        for behavior in dynamicAnimator!.behaviors {
-            var behavior = behavior as! UIAttachmentBehavior
-            var yDistance = fabs(touchLocation!.y - behavior.anchorPoint.y)
-            var xDistance = fabs(touchLocation!.x - behavior.anchorPoint.x)
-            var scrollResistance = (yDistance + xDistance) / 1500.0
-            
-            var item:UICollectionViewLayoutAttributes = behavior.items.first as! UICollectionViewLayoutAttributes
-            var center = item.center
-            
-            if delta < 0 {
-                center.y += max(delta, delta * scrollResistance)
-            } else {
-                center.y += min(delta, delta * scrollResistance)
-            }
-            
-            item.center = center
-            
-            dynamicAnimator?.updateItemUsingCurrentState(item)
+
+    override func collectionViewContentSize() -> CGSize {
+        if let cv = collectionView {
+            return CGSizeMake(cv.frame.size.width,
+                cv.frame.size.height - cv.contentInset.top);
         }
         
-        return false
+        return CGSizeMake(0, 0)
     }
 }
