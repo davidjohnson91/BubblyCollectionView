@@ -15,7 +15,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         bubblyView.invalidateIntrinsicContentSize()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        for (index, item) in enumerate(bubblyView.items) {
+            bubblyView.performBatchUpdates({ () -> Void in
+                self.bubblyView.insertItemsAtIndexPaths([NSIndexPath(forItem: index, inSection: 0)])
+                self.bubblyView.displayedItems.append(item)
+                }, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
