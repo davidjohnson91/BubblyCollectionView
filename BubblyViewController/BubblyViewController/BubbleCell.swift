@@ -20,9 +20,7 @@ class BubbleCell: UICollectionViewCell {
     }
     
     required init(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
-        backgroundColor = UIColor(red: 39/255, green: 142/255, blue: 171/255, alpha: 1.0)
     }
     
     override func awakeFromNib() {
@@ -34,42 +32,50 @@ class BubbleCell: UICollectionViewCell {
     }
     
     func toggleState() {
-        if let state = currentState {
+        
+        if let state = self.currentState {
             switch state {
             case .Basic:
-                setStateLike()
+                self.setStateLike()
             case .Like:
-                setStateLove()
+                self.setStateLove()
             case .Love:
-                setStateBasic()
+                self.setStateBasic()
             }
         }
         
-        
         setNeedsLayout()
+        layoutSubviews()
+
+    }
+    
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        
+        var context = UIGraphicsGetCurrentContext()
+        CGContextSetFillColor(context, CGColorGetComponents(UIColor(red: 39/255, green: 142/255, blue: 171/255, alpha: 1.0).CGColor))
+        CGContextFillPath(context)
+        CGContextFillEllipseInRect(context, rect)
     }
     
     private func setStateBasic(){
         currentState = .Basic
         bounds = CGRectMake(0, 0, 100, 100)
+        imageView.layer.cornerRadius = bounds.height / 2
         imageView.alpha = 0.0
-//        backgroundColor = backgroundColor?.colorWithAlphaComponent(1.0)
-        layer.cornerRadius = bounds.size.height / 2
     }
     
     private func setStateLike(){
         currentState = .Like
         bounds = CGRectMake(0, 0, 120, 120)
+        imageView.layer.cornerRadius = bounds.height / 2
         imageView.alpha = 0.3
-//        backgroundColor = backgroundColor?.colorWithAlphaComponent(0.7)
-        layer.cornerRadius = bounds.size.height / 2
     }
     
     private func setStateLove(){
         currentState = .Love
         bounds = CGRectMake(0, 0, 140, 140)
+        imageView.layer.cornerRadius = bounds.height / 2
         imageView.alpha = 0.4
-//        backgroundColor = backgroundColor?.colorWithAlphaComponent(0.5)
-        layer.cornerRadius = bounds.size.height / 2
     }
 }

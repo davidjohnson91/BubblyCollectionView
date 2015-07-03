@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>892E3E1D-462D-43AF-A3D8-CB4D788875B3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BubblyViewController</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>37480DF20B22E36F49475DA1672208116F458D1F</key>
+		<string>github.com:davidjohnson91/BubblyCollectionView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BubblyViewController/BubblyViewController.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>37480DF20B22E36F49475DA1672208116F458D1F</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:davidjohnson91/BubblyCollectionView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>37480DF20B22E36F49475DA1672208116F458D1F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>37480DF20B22E36F49475DA1672208116F458D1F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BubblyCollectionView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -12,23 +12,26 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="technology" translatesAutoresizingMaskIntoConstraints="NO" id="UHy-mi-mBT">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                    <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXh-fX-1aH">
                     <rect key="frame" x="34" y="42.5" width="30.5" height="14.5"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="UHy-mi-mBT" secondAttribute="trailing" id="9zA-Md-Uy1"/>
                 <constraint firstAttribute="centerY" secondItem="PXh-fX-1aH" secondAttribute="centerY" constant="0.5" id="DtH-sd-Fif"/>
                 <constraint firstAttribute="centerX" secondItem="PXh-fX-1aH" secondAttribute="centerX" id="Nyb-Uy-qUW"/>
-                <constraint firstItem="PXh-fX-1aH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="1" id="XM9-r4-TOy"/>
+                <constraint firstItem="PXh-fX-1aH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="XM9-r4-TOy"/>
                 <constraint firstItem="UHy-mi-mBT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Yjy-hY-HWc"/>
                 <constraint firstItem="UHy-mi-mBT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kM1-eK-Dg6"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PXh-fX-1aH" secondAttribute="trailing" constant="1" id="wxF-D6-emG"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PXh-fX-1aH" secondAttribute="trailing" constant="3" id="wxF-D6-emG"/>
                 <constraint firstAttribute="bottom" secondItem="UHy-mi-mBT" secondAttribute="bottom" id="z4k-5N-r8i"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

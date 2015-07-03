@@ -24,7 +24,8 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
         dataSource = self
         delegate = self
         var layout = BubblyLayout()
-        
+        contentInset = UIEdgeInsetsMake(contentInset.top, 50, contentInset.bottom, 50)
+            
         collectionViewLayout = layout
     }
     
@@ -37,11 +38,10 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
         let layout = (collectionViewLayout as! BubblyLayout)
         var selectedAttributes = layout.dynamicAnimator?.layoutAttributesForCellAtIndexPath(indexPath)
         
-        var cell = collectionView.cellForItemAtIndexPath(indexPath)
-        (cell as! BubbleCell).toggleState()
-        
-        selectedAttributes!.bounds = cell!.bounds
-        
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! BubbleCell
+        cell.toggleState()
+        selectedAttributes!.bounds = cell.bounds
+
         layout.dynamicAnimator?.updateItemUsingCurrentState(selectedAttributes!)
         
         var behaviors = layout.dynamicAnimator!.behaviors;
@@ -59,32 +59,25 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
         
         cell.label.text = item
         
-        cell.layer.cornerRadius = cell.bounds.width / 2
         return cell
     }
 }
 
 class BubblyLayout: UICollectionViewLayout {
     var dynamicAnimator: UIDynamicAnimator?
-    var gravityBehavior: UIGravityBehavior?
     var collisionBehavior: UICollisionBehavior?
     var dynamicItemBehavior: UIDynamicItemBehavior?
-    
+
     let kItemSize = 80
     
     override init() {
         super.init()
         dynamicAnimator = UIDynamicAnimator(collectionViewLayout: self)
 
-        gravityBehavior = UIGravityBehavior(items: [])
-        gravityBehavior?.gravityDirection = CGVectorMake(0, 1)
-        gravityBehavior?.magnitude = 0.2
-        dynamicAnimator?.addBehavior(gravityBehavior)
-        
         dynamicItemBehavior = UIDynamicItemBehavior(items: [])
         dynamicItemBehavior?.allowsRotation = false
         dynamicItemBehavior?.friction = 0.2
-        dynamicItemBehavior?.elasticity = 0.2
+        dynamicItemBehavior?.elasticity = 0.4
         dynamicAnimator?.addBehavior(dynamicItemBehavior)
         
         collisionBehavior = UICollisionBehavior(items: [])
@@ -99,31 +92,31 @@ class BubblyLayout: UICollectionViewLayout {
     override func prepareForCollectionViewUpdates(updateItems: [AnyObject]!) {
         super.prepareForCollectionViewUpdates(updateItems)
         
+        let attachAnchor = CGPointMake(collectionViewContentSize().width / 2, CGRectGetMidY(self.collectionView!.bounds))
+        
         for item in updateItems as! [UICollectionViewUpdateItem] {
             if item.updateAction == UICollectionUpdateAction.Insert {
                 var attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: item.indexPathAfterUpdate!)
                 
-                let lowerX : UInt32 = UInt32(self.collectionView!.frame.minX)
-                let upperX : UInt32 = UInt32(self.collectionView!.frame.maxX)
-                let randomX = arc4random_uniform(upperX - lowerX) + lowerX
-                
-                let lowerY : UInt32 = UInt32(self.collectionView!.frame.minY)
-                let upperY : UInt32 = UInt32(self.collectionView!.frame.maxY)
-                let randomY = arc4random_uniform(upperY - lowerY) + lowerY
+                let randomX = self.collectionView!.frame.maxX + CGFloat(arc4random_uniform(50))
+                let randomY = self.collectionView!.frame.midY + CGFloat(arc4random_uniform(20)) - CGFloat(arc4random_uniform(20))
             
                 attributes.frame = CGRectMake(CGFloat(randomX), CGFloat(randomY), 100, 100)
                 
-                var attachmentBehavior = UIAttachmentBehavior(item: attributes, attachedToAnchor: CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMidY(self.collectionView!.bounds)))
-                attachmentBehavior.length = 0.4;
+                var attachmentBehavior = UIAttachmentBehavior(item: attributes, attachedToAnchor: attachAnchor)
+                attachmentBehavior.length = 0.0;
                 attachmentBehavior.damping = 0.7;
                 attachmentBehavior.frequency = 0.5;
                 
                 dynamicAnimator?.addBehavior(attachmentBehavior)
-                gravityBehavior?.addItem(attributes)
                 collisionBehavior?.addItem(attributes)
                 dynamicItemBehavior?.addItem(attributes)
             }
         }
+    }
+    
+    override func prepareLayout() {
+        super.prepareLayout()
     }
 
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
@@ -136,10 +129,9 @@ class BubblyLayout: UICollectionViewLayout {
 
     override func collectionViewContentSize() -> CGSize {
         if let cv = collectionView {
-            return CGSizeMake(cv.frame.size.width,
-                cv.frame.size.height - cv.contentInset.top);
+            return CGSizeMake(500, cv.frame.size.height - cv.contentInset.top);
         }
         
-        return CGSizeMake(0, 0)
+        return CGSizeMake(1000, 1000)
     }
 }
