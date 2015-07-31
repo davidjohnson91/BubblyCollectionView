@@ -21,6 +21,7 @@ class ViewController: UIViewController {
                 self.bubblyView.displayedItems.append(item)
                 }, completion: nil)
         }
+        
         bubblyView.setContentOffset(CGPointMake(((bubblyView.contentSize.width / 2) - (view.frame.width / 2)), 0), animated: true)
         
     }

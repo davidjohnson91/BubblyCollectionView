@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
+class BubblyView: UICollectionView, UICollectionViewDelegate {
     let items = ["Electronics", "Entertainment", "Finance", "Food and Drink", "Gifts", "Health & Beauty", "Home", "Home Improvement & Automotive", "Jewelry & Watches", "Kids & Baby", "Men", "Office & Education", "Patio, Lawn & Garden", "Pets", "Shoes", "Sports, Fitness & Camping", "Travel", "Women"]
     
     var displayedItems = [String]()
@@ -23,13 +23,15 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
 
         dataSource = self
         delegate = self
-        var layout = BubblyLayout()
+        
         contentInset = UIEdgeInsetsMake(contentInset.top, 50, contentInset.bottom, 50)
             
-        collectionViewLayout = layout
+        collectionViewLayout = BubblyLayout()
     }
-    
-    //MARK - DataSource
+
+}
+
+extension BubblyView: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayedItems.count
     }
@@ -41,7 +43,7 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! BubbleCell
         cell.toggleState()
         selectedAttributes!.bounds = cell.bounds
-
+        
         layout.dynamicAnimator?.updateItemUsingCurrentState(selectedAttributes!)
         
         var behaviors = layout.dynamicAnimator!.behaviors;
@@ -61,6 +63,7 @@ class BubblyView: UICollectionView, UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
+
 }
 
 class BubblyLayout: UICollectionViewLayout {
